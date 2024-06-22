@@ -102,33 +102,33 @@ export const validateRegister = withValidationErrors([
       }
       return true;
     }),
-  body("password")
-    .notEmpty()
-    .withMessage(`Password is required`)
-    .bail()
-    .isStrongPassword({
-      minLength: 6,
-      maxLength: 15,
-      minLowercase: 1,
-      minUppercase: 1,
-      minNumbers: 1,
-      minSymbols: 1,
-    })
-    .withMessage(
-      `Password must be at least 8 characters long + contain at least one uppercase letter + one lowercase letter + one number + one symbol`
-    ),
-  body("passwordConfirm")
-    .if((value, { req }) => req.body.password)
-    .notEmpty()
-    .withMessage(`Re-enter password`)
-    .bail()
-    .custom((value, { req }) => {
-      const { password } = req.body;
-      if (value !== password) {
-        throw new BadRequestError(`Passwords do not match`);
-      }
-      return true;
-    }),
+  // body("password")
+  //   .notEmpty()
+  //   .withMessage(`Password is required`)
+  //   .bail()
+  //   .isStrongPassword({
+  //     minLength: 6,
+  //     maxLength: 15,
+  //     minLowercase: 1,
+  //     minUppercase: 1,
+  //     minNumbers: 1,
+  //     minSymbols: 1,
+  //   })
+  //   .withMessage(
+  //     `Password must be at least 8 characters long + contain at least one uppercase letter + one lowercase letter + one number + one symbol`
+  //   ),
+  // body("passwordConfirm")
+  //   .if((value, { req }) => req.body.password)
+  //   .notEmpty()
+  //   .withMessage(`Re-enter password`)
+  //   .bail()
+  //   .custom((value, { req }) => {
+  //     const { password } = req.body;
+  //     if (value !== password) {
+  //       throw new BadRequestError(`Passwords do not match`);
+  //     }
+  //     return true;
+  //   }),
   body("tnc")
     .if((value, { req }) => req.body.passwordConfirm)
     .custom((value) => {

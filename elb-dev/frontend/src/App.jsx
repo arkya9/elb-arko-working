@@ -6,6 +6,7 @@ import Landing from "./pages/website/Landing";
 // Actions ------
 import { action as loginAction } from "./components/website/Login";
 import { action as registerAction } from "./components/website/Signup";
+import { action as registerAction_dev } from "./pages/admin/auth/Register";
 import { action as forgotPasswordAction } from "./pages/admin/auth/ForgotPassword";
 
 // Loaders ------
@@ -33,6 +34,12 @@ const router = createBrowserRouter([
         element: <Signup />,
         errorElement: <Elb.Error />,
         action: registerAction,
+      },
+      {
+        path: "/sign-up-dev",
+        element: <Elb.Register />,
+        errorElement: <Elb.Error />,
+        action: registerAction_dev,
       },
     ],
   },

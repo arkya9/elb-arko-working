@@ -1,10 +1,13 @@
 import customFetch from "../../utils/customFetch";
 import { toast } from "react-toastify";
+import { setTncModal } from "../../feature/authSlice"
 import signupImage from "../../assets/website/img/others/1.png";
 import { splitErrors } from "../../utils/showErrors";
 import { Form, Link, redirect } from "react-router-dom";
-//import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
+
+import TncModal from "../../pages/admin/auth/TncModal";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -20,11 +23,12 @@ export const action = async ({ request }) => {
   }
 };
 
+
 export default function Signup() {
   document.title = `Join the Family | ${import.meta.env.VITE_APP_TITLE}`;
   //const navigation = useNavigation();
   //const isLoading = navigation.state === "submitting";
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [textType, setTextType] = useState("password");
   const [form, setForm] = useState({
     firstName: "",
@@ -36,6 +40,9 @@ export default function Signup() {
   });
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+  const togglePasswordVisibility = () => {
+    setTextType((prevType) => (prevType === "password" ? "text" : "password"));
   };
   return (
     <section className="py-110 bg-offWhite">
@@ -122,28 +129,25 @@ export default function Signup() {
                       />
                     </div>
                     <div className="form-input col-lg-12">
-                      <label htmlFor="email" className="form-label">
-                        Password <span className="text-lime-300">*</span>
-                      </label>
+                    <div className="input-group">
                       <input
                         type={textType}
-                        className="form-control"
-                        placeholder="Password"
                         name="password"
-                        id="password"
                         value={form.password}
                         onChange={handleChange}
+                        placeholder="********"
+                        className="form-control shadow-none"
                       />
-                      <MdOutlineRemoveRedEye
+                      <span
                         className="input-group-text cursor-pointer"
-                        title="Show password"
-                        size={18}
-                        onClick={() =>
-                          setTextType(
-                            textType === "password" ? "text" : "password"
-                          )
-                        }
-                      />
+                        onClick={togglePasswordVisibility}
+                      >
+                        <MdOutlineRemoveRedEye
+                          className="h-5 w-5 text-gray-400"
+                          aria-hidden="true"
+                        />
+                      </span>
+                    </div>
                     </div>
                     <div className="form-input col-lg-12">
                       <label htmlFor="email" className="form-label">
@@ -160,6 +164,22 @@ export default function Signup() {
                         onChange={handleChange}
                       />
                     </div>
+                    <div className="mb-3">
+                <label className="form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    name="tnc"
+                  />
+                  <span className="form-check-label">
+                    Agree the{" "}
+                    <Link to={`#`} onClick={() => dispatch(setTncModal())}>
+                      terms and policy
+                    </Link>
+                    .
+                  </span>
+                </label>
+              </div>
                   </div>
                   <div className="d-grid mt-4">
                     <button type="submit" className="w-btn-secondary-lg">
@@ -185,6 +205,7 @@ export default function Signup() {
             </div>
           </div>
         </div>
+        <TncModal />
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { unsetTncModal } from "../../../feature/authSlice";
