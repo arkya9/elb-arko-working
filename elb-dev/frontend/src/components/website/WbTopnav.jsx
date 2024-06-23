@@ -101,13 +101,20 @@ const WbTopnav = () => {
                 </a>
               </div>
             </div>
-            <input
-                type="checkbox"
-                value=""
-                onChange={chengeBtn}
-                checked={ThemeMode==="dark"}
-                className="sr-only peer"
-            />
+            <div className="container mt-4">
+        <div className="form-check form-switch">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="themeSwitch"
+            onChange={chengeBtn}
+            checked={ThemeMode === "dark"}
+          />
+          <label className="custom-control-label" htmlFor="themeSwitch">
+            Toggle Theme
+          </label>
+        </div>
+      </div>
           </div>
           <div className="navbar-right d-flex align-items-center gap-4">
             <div className="align-items-center d-none d-lg-flex">
