@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Link } from "react-router-dom";
 import WbLogoSvg from "./WbLogoSvg";
 import { FaUser } from "react-icons/fa6";
 import { IoChevronDown } from "react-icons/io5";
+import useTheme from "../../../contexts/theme";
 
 const WbTopnav = () => {
   const [hover, setHover] = useState(false);
@@ -11,8 +12,17 @@ const WbTopnav = () => {
     transition: "transform 0.3s ease-in-out",
     transform: hover ? "rotate(180deg)" : "rotate(0deg)",
   };
+  const {ThemeMode,darkTheme,lightTheme}=useTheme()
+  const chengeBtn=(e)=>{
+     const btnstatus=e.currentTarget.checked
+     if(btnstatus)
+      darkTheme()
+  else
+  lightTheme()
+  }
 
   return (
+
     <header className="header-primary">
       <div className="container">
         <nav className="navbar navbar-expand-xl justify-content-between">
@@ -91,6 +101,13 @@ const WbTopnav = () => {
                 </a>
               </div>
             </div>
+            <input
+                type="checkbox"
+                value=""
+                onChange={chengeBtn}
+                checked={ThemeMode==="dark"}
+                className="sr-only peer"
+            />
           </div>
           <div className="navbar-right d-flex align-items-center gap-4">
             <div className="align-items-center d-none d-lg-flex">

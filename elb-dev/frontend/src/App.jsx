@@ -14,6 +14,8 @@ import { loader as layoutLoader } from "./pages/admin/Layout";
 import { loader as adminLoader } from "./pages/admin/LayoutAdmin";
 import Login from "./components/website/Login";
 import Signup from "./components/website/Signup";
+import { useEffect, useState } from "react";
+import { ThemeProvider } from "../contexts/theme";
 
 const router = createBrowserRouter([
   // Website routes ------
@@ -50,7 +52,6 @@ const router = createBrowserRouter([
     errorElement: <Elb.Error />,
     action: loginAction,
   },
-
   {
     path: "/forgot-password",
     element: <Elb.ForgotPassword />,
@@ -100,7 +101,26 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  const [ThemeMode, setThemeMode] = useState('light');
+
+  const darkTheme = () => {
+    setThemeMode('dark');
+  };
+
+  const lightTheme = () => {
+    setThemeMode('light');
+  };
+
+  useEffect(() => {
+    document.querySelector('html').classList.remove("light", "dark");
+    document.querySelector('html').classList.add(ThemeMode);
+  }, [ThemeMode]);
+
+  return (
+    <ThemeProvider value={{ ThemeMode, darkTheme, lightTheme }}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
 }
 
 export default App;
