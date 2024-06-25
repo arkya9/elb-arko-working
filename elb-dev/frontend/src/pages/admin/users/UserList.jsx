@@ -117,7 +117,7 @@ const UserList = () => {
             <PageHeader
               title={`List of All Users`}
               postTitle={postTitle}
-              textClass={textClass}
+              textclassName={textClass}
             />
             <div className="col-auto ms-auto d-print-none">
               <div className="btn-list">

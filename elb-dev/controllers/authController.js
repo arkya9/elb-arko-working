@@ -8,7 +8,7 @@ import dayjs from "dayjs";
 import { v4 as uuidv4 } from "uuid";
 import nodemailer from "nodemailer";
 
-// ------
+// ------test
 export const register = async (req, res) => {
   const { firstName, lastName, email, mobile, password, tnc } = req.body;
   console.log(firstName, lastName, email, mobile, password, tnc);

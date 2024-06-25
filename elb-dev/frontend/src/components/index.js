@@ -32,3 +32,5 @@ export { default as WbTopnav } from "./website/WbTopnav";
 export { default as WbSecondNav } from "./website/WbSecondNav";
 export { default as WbLogoSvg } from "./website/WbLogoSvg";
 export { default as WbHeroSection } from "./website/landing/WbHeroSection";
+export { default as TopSellers } from "./website/landing/TopSellers";
+export { default as FeaturedProducts } from "./website/landing/FeaturedProducts";

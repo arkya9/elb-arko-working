@@ -50,14 +50,7 @@ export default function Signup() {
         <div className="mb-5">
           <div className="row justify-content-center">
             <div className="col-auto">
-              <div className="d-flex align-items-center gap-3">
-                <a href="#" className="w-form-btn">
-                  Freelancer
-                </a>
-                <a href="#" className="w-form-btn-outline">
-                  Buyer
-                </a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -182,7 +175,7 @@ export default function Signup() {
               </div>
                   </div>
                   <div className="d-grid mt-4">
-                    <button type="submit" className="w-btn-secondary-lg">
+                    <button type="submit" className="w-btn-black-lg ">
                       Create Account
                     </button>
                   </div>

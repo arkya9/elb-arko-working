@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineDotsVertical } from "react-icons/hi";
+import CategoryModal from "./CategoryModal";
 
 const WbSecondNav = () => {
+
+  const [showModal, setShowModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="d-none d-xl-block secondary-nav-wrapper">
       <div className="container">
         <div className="position-relative">
-          <nav className="secondary-nav-container bg-white position-absolute w-100 start-0 z-3 border-top">
+          <nav className="secondary-nav-container position-absolute w-100 start-0 z-3">
             <ul className="secondary-nav d-flex justify-content-between align-items-center">
               <li>
                 <Link to={`#`} className="text-decoration-none">
@@ -65,7 +77,7 @@ const WbSecondNav = () => {
                 </Link>
               </li>
               <li>
-                <button type="button">
+                <button type="button" onClick={handleOpenModal}>
                   <svg
                     width="38"
                     height="38"
@@ -88,6 +100,7 @@ const WbSecondNav = () => {
                     />
                   </svg>
                 </button>
+                <CategoryModal show={showModal} handleClose={handleCloseModal} title="All Categories"/>
               </li>
             </ul>
           </nav>

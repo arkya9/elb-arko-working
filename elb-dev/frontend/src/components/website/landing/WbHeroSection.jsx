@@ -4,14 +4,13 @@ import gp1 from "../../../assets/website/img/hero/gp-1.png";
 import gp2 from "../../../assets/website/img/hero/gp-2.png";
 import gp3 from "../../../assets/website/img/hero/gp-3.png";
 
+// style={{
+//   background: `url(${heroGirl}) no-repeat center center/cover`,
+// }}
+
 const WbHeroSection = () => {
   return (
-    <section
-      className="hero-one"
-      style={{
-        background: `url(${heroGirl}) no-repeat center center/cover`,
-      }}
-    >
+    <section className="hero-one">
       <div className="container">
         <div className="row">
           <div className="col-md-12 col-xl-6 mt-n5">
@@ -23,17 +22,15 @@ const WbHeroSection = () => {
                 data-aos-easing="linear"
               >
                 Find Your Perfect
-                <span className="highlighted-text"> Freelancer </span>
-                Quick and Easy
+                  <span class="highlighted-text"> Freelancer </span>
+                  Quick and Easy
               </h1>
-              <div className="pt-5">
+              {/* <div className="pt-5">
                 <form>
                   <div className="hero-form-wrapper bg-white d-flex position-relative">
                     <div>
                       <select className="form-select shadow-none">
-                        <option value="0" selected>
-                          All Categories
-                        </option>
+                        <option value="0">All Categories</option>
                         <option value="1">Animation</option>
                         <option value="2">Web Design</option>
                         <option value="3">Graphics</option>
@@ -51,7 +48,7 @@ const WbHeroSection = () => {
                     </div>
                   </div>
                 </form>
-              </div>
+              </div> */}
               <div className="mt-60 d-flex flex-column flex-sm-row flex-wrap gap-4 align-items-center">
                 <div className="d-flex gap-3 align-items-center">
                   <div className="hero-group-img-wrapper">
@@ -103,11 +100,11 @@ const WbHeroSection = () => {
           </div>
           <div className="col-md-12 col-xl-5 mt-5 mt-xl-0">
             <div className="">
-              <img
+              {/* <img
                 src="assets/img/hero/big-b.png"
                 className="hero-one-img text-end"
                 alt=""
-              />
+              /> */}
             </div>
           </div>
         </div>

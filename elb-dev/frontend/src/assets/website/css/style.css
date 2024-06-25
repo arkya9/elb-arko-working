@@ -3165,11 +3165,9 @@ Footer
 .footer-social-link:hover {
   color: var(--white);
 }
+.dark {
+  background-color: #13544e;
+}
 /*******************
 Footer   End
-
 ********************/
-
-.dark{
-  background-color: #4b83fc;
-}
